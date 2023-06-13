@@ -72,13 +72,13 @@ export_path = ''
 file_path = ''
 extensions = ['.mp4','.mov','.mkv','.avi']
 
-# videos_folder = '{}'.format(askdirectory(title='Folder where replays are',mustexist=True))
-# cuts_folder = '{}'.format(askdirectory(title='Folder of Cuts CSVs',mustexist=True))
-# export_folder = '{}'.format(askdirectory(title='Folder to place exported clips',mustexist=True))
+videos_folder = '{}'.format(askdirectory(title='Folder where replays are',mustexist=True))
+cuts_folder = '{}'.format(askdirectory(title='Folder of Cuts CSVs',mustexist=True))
+export_folder = '{}'.format(askdirectory(title='Folder to place exported clips',mustexist=True))
 
-videos_folder = 'J:/MLB_Downloads'
-cuts_folder = 'J:/MLB_Downloads/2023_mlb_cuts'
-export_folder = 'D:/MLB_Clips_Exports'
+# videos_folder = 'J:/MLB_Downloads'
+# cuts_folder = 'J:/MLB_Downloads/2023_mlb_cuts'
+# export_folder = 'D:/MLB_Clips_Exports'
 
 def make_csv_and_clips_created ():
     global cuts_list, cuts_folder, videos_folder, export_folder,cut_name, filename_noext, cuts_path, export_path, file_path, extensions
