@@ -3,8 +3,20 @@ from tkinter import filedialog
 import boto3
 import os
 
-# Set up the Boto3 S3 client
-s3 = boto3.client('s3')
+
+# Set up AWS credentials
+aws_access_key_id = 'AKIASRDSO7SIZ73X2DOF'
+aws_secret_access_key = '3Jjo42Y+nzi8vrv4LoxdRA8bD6rj65TQa3i3SGNA'
+aws_session_token = 'YOUR_SESSION_TOKEN'  # Optional, required for temporary security credentials
+
+# Create an S3 client with the provided credentials
+s3 = boto3.client(
+    's3',
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+    aws_session_token=aws_session_token
+)
+
 
 # Create a Tkinter root window
 root = tk.Tk()
