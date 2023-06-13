@@ -1,0 +1,26 @@
+import os
+
+logo_remover = "C:/Users/Injecto101/Downloads/KayRod_Cast_Remove_Logo.png"
+mask_remover = "C:/Users/Injecto101/Downloads/KayRod_Cast_Remove_Mask.png"
+mask_directory = "C:/Users/Injecto101/Downloads/SNB_04.17.22/SNB_04.17.22_MASKS_SELECTED"
+output_directory = "C:/Users/Injecto101/Downloads/SNB_04.17.22/SNB_04.17.22_MASKS_SELECTED2"
+output_directory2 = "C:/Users/Injecto101/Downloads/SNB_04.17.22/SNB_04.17.22_LOGOS_SELECTED"
+dir = "D:/Users/Santi/Downloads/_BE"
+for filename in os.scandir(mask_directory):
+    if filename.is_file():
+        old_file = filename.path
+        file = os.path.basename(filename.path)
+        #file_name = os.path.basename(filename)
+        #print(os.path.basename(filename))
+        new_file = os.path.join(output_directory,file)
+        new_file2 = os.path.join(output_directory2,file)
+        #print(new_file)
+        os.system(f'cmd /c ffmpeg -y -i {old_file} -i {logo_remover} -filter_complex "[0:v][1:v] overlay=0:0" {new_file}' )
+        os.system(f'cmd /c ffmpeg -y -i {old_file} -i {mask_remover} -filter_complex "[0:v][1:v] overlay=0:0" {new_file2}' )
+
+#TESTING THIS OUT
+#123
+
+#ffmpeg -y -i C:/Users/Injecto101/Downloads/KayRod_Cast_04.17.22_LOGOS_SELECTED/KayRod_Cast_04.17.22_image-32400.png -i C:/Users/Injecto101/Downloads/KayRod_Cast_Remove_Watermark.png -filter_complex "[0:v][1:v] overlay=0:0" C:/Users/Injecto101/Downloads/KayRod_Cast_04.17.22_LOGOS_SELECTED/KayRod_Cast_04.17.22_image-32400.png
+
+#ffmpeg -y -i C:/Users/Injecto101/Downloads/KayRod_Cast_04.17.22_MASKS_SELECTED/KayRod_Cast_04.17.22_image-32400.png -i C:/Users/Injecto101/Downloads/KayRod_Cast_Remove_Logo.png -filter_complex "[0:v][1:v] overlay=0:0" C:/Users/Injecto101/Downloads/KayRod_Cast_04.17.22_LOGOS_SELECTED/KayRod_Cast_04.17.22_image-32400.png
