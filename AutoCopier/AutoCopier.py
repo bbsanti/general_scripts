@@ -71,7 +71,7 @@ def copy_unique_files(source_ftp, source_dirs, destination_dir):
     ftp.quit()
 
 # Specify the FTP details and directories
-SegmentoID = input("Identify the Segmento: ")
+SegmentoID = input("Identify the Segmento (Name for Destination Folder): ")
 SOURCE_ftp = input("Hyperdeck IP Address: ")
 
 source_ftp = SOURCE_ftp  # Replace with the appropriate FTP URL
@@ -81,7 +81,7 @@ source_directories = get_directories(source_ftp)
 directory_name = SegmentoID + "_Recordings_" + str(date.today())
 os.makedirs(directory_name, exist_ok=True)
 
-destination_directory = directory_name
+destination_directory = os.path.join("D:", directory_name)
 
 # Schedule the script to run at a specific time (e.g., 8:00 AM)
 Time = input("Enter the time for copying to occur (24 hr format): ")
